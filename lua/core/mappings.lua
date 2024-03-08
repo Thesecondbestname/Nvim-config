@@ -7,7 +7,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.del('v', 'x')
 vim.keymap.del('n', 'd')
 vim.keymap.set('n', 'd', '<Cmd>x<Cmd>')
-vim.keymap.set('i', '<Esc>', '<sdi>')
 
 
 

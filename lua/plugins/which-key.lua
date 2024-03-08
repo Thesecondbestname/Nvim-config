@@ -89,22 +89,21 @@ return {
 
     local mappings = {
       ["a"] = { toggleAlpha, "Alpha" },
-      ["y"] = { ":%y+<cr>", "Yank All Text" },
       ["e"] = { ":NvimTreeToggle<cr>", "Explorer" },
       ["q"] = { ":qa!<cr>", "Quit" },
-      ["w"] = { ":write<cr>", "Safe file"},
-      ["c"] = { ":Bdelete!<cr>", "Close Buffer" },
-      ["h"] = { ":Cheatsheet<cr>", "Command Help"},
-      ["H"] = { ":require(\"lsp_lines\").toggle, { desc = \"Toggle lsp_lines\" } <cr>", "Toggle hints"},
-      ["s"] = {
+      ["f"] = {
         ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "Search files",
       },
+      ["s"] = { ":write<cr>", "Safe file"},
+      ["c"] = { ":Bdelete!<cr>", "Close Buffer" },
+      ["h"] = { ":Cheatsheet<cr>", "Command Help"},
+      ["H"] = { ":require(\"lsp_lines\").toggle, { desc = \"Toggle lsp_lines\" } <cr>", "Toggle hints"},
       z = {
-	name = "Zen mode",
-	a = {":TZAtaraxis<cr>", "Inner peace"},
-	f = {":TZFocus<cr>", "Focus on the window"},
-	m = {":TZMinimalist<cr>", "Code like you never did before"}
+        name = "Zen mode",
+        a = {":TZAtaraxis<cr>", "Inner peace"},
+        f = {":TZFocus<cr>", "Focus on the window"},
+        m = {":TZMinimalist<cr>", "Code like you never did before"}
       },
       p = {
         name = "Plugin",
@@ -167,6 +166,7 @@ return {
         I = { ":Lspsaga incoming_calls<cr>", "Incoming Calls" },
         O = { ":Lspsaga outgoing_calls<cr>", "Outgoing Calls" },
         m = { ":Mason<cr>", "Mason Installer" },
+       t = {  "<cmd>TodoTelescope<cr>", desc = "Todo" },
         j = {
           ":Lspsaga diagnostic_jump_next<cr>",
           "Next Diagnostic",
@@ -190,8 +190,8 @@ return {
         b = { ":lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
         d = { ":lua require'dapui'.toggle()<cr>", "Dap UI" },
       },
-      f = {
-        name = "Find",
+      t = {
+        name = "Telescope",
         a = { ":Telescope autocommands<cr>", "Autocommmands" },
         b = { ":Telescope git_branches<cr>", "Checkout branch" },
         c = { ":Telescope colorscheme<cr>", "Colorscheme" },

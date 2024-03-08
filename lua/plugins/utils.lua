@@ -11,20 +11,9 @@ return {
   },
 
   {
-    "dstein64/vim-startuptime",
-    init = function()
-      vim.g.startuptime_tries = 5
-    end,
-    cmd = "StartupTime",
-    dependencies = {
-      "nvim-lualine/lualine.nvim", -- Just to fix stuck issue on vim-startuptime
-    },
+    "terrortylor/nvim-comment",
+  config = function() 
+      require("nvim_comment").setup({  comment_empty = true,})
+    end
   },
-  {
-    "sudormrfbin/cheatsheet.nvim",
-    dependencies = {
-            {"nvim-lua/popup.nvim"},
-            {"nvim-lua/plenary.nvim"},
-         }
-   }
 }
