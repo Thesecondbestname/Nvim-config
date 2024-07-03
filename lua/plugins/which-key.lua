@@ -24,6 +24,7 @@ return {
           nav = true, -- misc bindings to work with windows
           z = true, -- bindings for folds, spelling and others prefixed with z
           g = true, -- bindings for prefixed with g
+
         },
       },
       -- add operators that will trigger motion and text object completion
@@ -96,14 +97,13 @@ return {
         "Search files",
       },
       ["s"] = { ":write<cr>", "Safe file"},
-      ["c"] = { ":Bdelete!<cr>", "Close Buffer" },
+      ["x"] = { ":Bdelete!<cr>", "Close Buffer" },
       ["h"] = { ":Cheatsheet<cr>", "Command Help"},
       ["H"] = { ":require(\"lsp_lines\").toggle, { desc = \"Toggle lsp_lines\" } <cr>", "Toggle hints"},
       z = {
         name = "Zen mode",
         a = {":TZAtaraxis<cr>", "Inner peace"},
-        f = {":TZFocus<cr>", "Focus on the window"},
-        m = {":TZMinimalist<cr>", "Code like you never did before"}
+        m = {"<cmd>TZMinimalist<cr><cmd>Twilight<cr>", "Code like you never did before"},
       },
       p = {
         name = "Plugin",
@@ -121,8 +121,8 @@ return {
       n = {
         name = "Neovim",
         r = { ":Reload<cr>", "Core Reload " },
+        t = { "<cmd>Lazy reload visual.nvim<cr><cmd>Lazy reload which-key.nvim<cr>", "reload problemmaker plugins" },
         c = { ":e $MYVIMRC<cr>", "Configuration" },
-        s = { ":StartupTime<cr>", "StartupTime" },
         i = { ":Inspect<cr>", "Inspect" }, -- only available on neovim 0.9
         u = { ":Update<cr>", "Update" },
         h = { ":checkhealth<cr>", "Health" },
@@ -160,27 +160,28 @@ return {
       l = {
         name = "LSP",
         f = { ":Format<cr>", "Format" },
-        a = { ":Lspsaga code_action<cr>", "Code Action" },
+        a = { vim.cmd.RustLsp('codeAction'), "Code Action" },
         i = { ":LspInfo<cr>", "Info" },
         o = { ":Lspsaga outline<cr>", "Code Outline" },
         I = { ":Lspsaga incoming_calls<cr>", "Incoming Calls" },
         O = { ":Lspsaga outgoing_calls<cr>", "Outgoing Calls" },
-        m = { ":Mason<cr>", "Mason Installer" },
-       t = {  "<cmd>TodoTelescope<cr>", desc = "Todo" },
         j = {
           ":Lspsaga diagnostic_jump_next<cr>",
           "Next Diagnostic",
         },
         k = {
-          ":Lspsaga diagnostic_jump_prev<cr>",
-          "Prev Diagnostic",
+          vim.lsp.buf.hover(),
+          "Hover action",
         },
         r = { ":Lspsaga rename<cr>", "Rename" },
+        R = { ":LspRestart<cr>", "Restart lsp" },
+        t = {  "<cmd>TodoTelescope<cr>", desc = "Todo" },
         d = { ":Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
-        w = { ":Telescope diagnostics<cr>", "Workspace Diagnostics" },
+        D = { ":Telescope diagnostics<cr>", "Workspace Diagnostics" },
         s = { ":Telescope lsp_document_symbols<cr>", "Document Symbols" },
         S = { ":Telescope lsp_workspace_symbols<cr>", "Workspace Symbols" },
-      },
+        m = { ":Mason<cr>", "Mason Installer" },
+     },
       d = {
         name = "Dap",
         c = { ":lua require'dap'.continue()<cr>", "Continue" },
@@ -202,7 +203,7 @@ return {
         H = { ":Telescope highlights<cr>", "Highlights" },
         t = { ":Telescope<cr>", "Just the telescope"}
       },
-      t = {
+      T = {
         name = "Terminal",
         f = { ":ToggleTerm direction=float<cr>", "Float" },
         h = { ":ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },

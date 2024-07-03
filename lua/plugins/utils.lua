@@ -13,7 +13,7 @@ return {
   {
     "terrortylor/nvim-comment",
   config = function() 
-      require("nvim_comment").setup({  comment_empty = true,})
+      require("nvim_comment").setup()
     end
   },
 }

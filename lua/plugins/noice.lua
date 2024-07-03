@@ -2,8 +2,8 @@ return({
   "folke/noice.nvim",
   config = function()
     require("notify").setup({
-  background_colour = "#2b3040",
-})
+      background_colour = "#2b3040",
+    })
     require("noice").setup({
          lsp = {
            signature = { enabled = false},
@@ -11,7 +11,7 @@ return({
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
       ["vim.lsp.util.stylize_markdown"] = true,
-      ["cmp.entry.get_documentation"] = true,
+      ["cmp.entry.get_documentation"] = false,
       ["config.lsp.hover.enabled"] = false,
     },
   },

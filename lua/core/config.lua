@@ -43,7 +43,6 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 opt.hlsearch = false -- Set highlight on search
-opt.guifont = "FiraCode" -- Set the guifont for nvim
 opt.mouse = 'a' -- Enable mouse mode
 opt.breakindent = true -- Enable break indent
 opt.undofile = true -- Save undo history

@@ -13,6 +13,7 @@ Kickstart.nvim is a template for your own configuration.
   Once you've done that, you should start exploring, configuring and tinkering to
   explore Neovim!
 
+
   If you don't know anything about Lua, I recommend taking some time to read through
   a guide. One possible example:
   - https://learnxinyminutes.com/docs/lua/
@@ -86,8 +87,6 @@ require('lazy').setup({
     },
   },
   { "catppuccin/nvim", name = "catppuccin" },
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
 
 	{
 		"norcalli/nvim-colorizer.lua",
@@ -230,10 +229,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
@@ -267,7 +263,9 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+    cargo = {allFeatures = true}
+  },
   -- tsserver = {},
 
   lua_ls = {
@@ -286,6 +284,7 @@ require('mason').setup()
 
 -- Set colorscheme
 vim.cmd 'colorscheme catppuccin-mocha' -- if the above fails, then use default
+
 -- Setup keybinds
 require('core.mappings')
 
